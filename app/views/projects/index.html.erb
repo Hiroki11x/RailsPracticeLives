@@ -1,0 +1,22 @@
+<h1>Projects</h1>
+<ul>
+	<% @projects.each do |project| %>
+	<li>
+		<!-- <%= link_to project.title ,project_path(project.id) %> -->
+		<% @url.each do |url| %>
+		<img src= "<%=url%>" >
+		<% end %>
+		<%= link_to project.title ,project_path(project) %>
+		<%= link_to "[Edit]", edit_project_path(project.id)%>
+		<%= link_to "[Delete]", project_path(project.id), method: :delete,data: {confirm: "are you sure?"} %>
+	</li>
+	<% end %>
+
+<ul>
+
+<p>
+	<%= link_to "Add New", new_project_path %>
+</p>
+<!-- #UnOrdered List リストの大枠 
+%= にするとrubyの評価をhtmlに埋め込む的な
+-->
